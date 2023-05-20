@@ -49,9 +49,3 @@ abstract public class User {
 
 }
 
-class Admin extends User{
-
-    Admin(String name, String gender) {
-        super(name, gender);
-    }
-}
