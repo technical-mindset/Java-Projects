@@ -36,6 +36,7 @@ public class FoodItem {
     public Map<String, Integer> getFastFood() {
         return fastFood;
     }
+    
     public Map<String, Integer> getDesiFood() {
         return desiFood;
     }
