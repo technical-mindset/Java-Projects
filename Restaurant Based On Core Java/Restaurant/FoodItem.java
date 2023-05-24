@@ -6,6 +6,7 @@ import java.util.Map;
 public class FoodItem {
     static private Map<String, Integer> fastFood;
     static private Map<String, Integer> desiFood;
+    
      FoodItem(){
          if (fastFood == null && desiFood == null) {
              // ------------ Fast Food ------------------ //
