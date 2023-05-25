@@ -142,5 +142,17 @@ public class Restaurant {
         return customer;
      }
 
+ public static void AdminLogin(){
+         System.out.println("Enter Password");
+         switch (scanner.next()){
+             default:
+                 System.out.println("          *****    Wrong Password     *****");
+                 AdminLogin();
+             case "abc123":
+
+                 screenForAdmin();
+         }
+     }
+
 
 }
