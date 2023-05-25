@@ -104,4 +104,43 @@ public class Restaurant {
         return (customer);
     }
 
+
+    private static Customer selection_of_order(Customer customer, Map<String,Integer> listOfFood){
+        System.out.print("\n     !!    Press number according to the assignment and \"0\" for exit    !!    \n -->");
+
+        int enter = scanner.nextInt();
+        Set<String> keySet = listOfFood.keySet();
+        String[] keyArray = keySet.toArray(new String[keySet.size()]);
+
+        if (enter >= 1) {
+            String keyValue = (enter <= 8 ? keyArray[enter-1] : keyArray[7]);
+            customer.setOrder(keyValue,listOfFood.get(keyValue));
+            customer.setBill(customer.getBill() + listOfFood.get(keyValue));
+            customer = selection_of_order(customer, listOfFood);
+        }
+        else if (enter <= 0) {
+            System.out.print("-> Exit from taking orders\n" +
+                    "      ----       Enter your choice according to the options:         ----" +
+                    "\n" +
+                    "1. Menu." +
+                    "\n" +
+                    "2. Details and total bill." +
+                    "\n" +
+                    "-->");
+
+            int option = scanner.nextInt();
+            if (option == 1) {
+               customer = displayFood(customer);
+            }
+            else if (option >= 2 || option < 1) {
+                System.out.println("== Safely Exit From Orders ==");
+            }
+
+
+        }
+
+        return customer;
+     }
+
+
 }
