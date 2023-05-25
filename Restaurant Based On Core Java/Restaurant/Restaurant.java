@@ -180,8 +180,81 @@ public class Restaurant {
          else screenForAdmin();
 
 
-//         System.out.println(totalSale);
      }
+  
+  private static void cus_Details(int input, Admin admin){
+
+         System.out.println("\033[0;1m" +
+                 "\'Information of:\'" +
+                 "\n" + "1. All customer's name" +
+                 " \n2. Each customer's bill" +
+                 "\n" + "3. Complete details");
+         System.out.print("-->");
+         input = scanner.nextInt();
+         if (input == 1) {
+             int index = 0;
+             for (Customer cus: customers) {
+                 System.out.println((++index) + ". " + cus.getName());
+             }
+         }
+         else if (input == 2) {
+             System.out.print("Name:                    Bill:\n");
+
+             for (Customer cus: customers) {
+                 System.out.print("\033[0;1m" + cus.getName());
+
+                 for (int i = 0; i < (25-cus.getName().length()); i++) {
+                     System.out.print(" ");
+                 }
+                 System.out.println(cus.getBill()+" Rs.");
+             }
+         }
+         else if (input == 3) {
+             System.out.print("Name:                    Bill:                          Items:                      Price:\n");
+
+             for (Customer cus: customers) {
+                 System.out.print("\033[0;1m" + cus.getName());
+
+                 for (int i = 0; i < (25-cus.getName().length()); i++) {
+                     System.out.print(" ");
+                 }
+                 System.out.print(cus.getBill()+" Rs.");
+
+                 int  j = 0;
+
+                 for (Map.Entry map : cus.getOrder().getFoodItem().entrySet()) {
+
+                     if (j == 0) {
+                         for ( int i = 0; i < (23) ; i++) {
+
+                             System.out.print(" ");
+                         }
+                     }
+                     if (j != 0) {
+                         for (int i = 0; i < (56); i++) {
+
+                             System.out.print(" ");
+                         }
+                     }
+                         System.out.print(map.getKey());
+
+                         for (int i = 0; i < (28 - map.getKey().toString().length()); i++) {
+                             System.out.print(" ");
+                         }
+                         System.out.println(map.getValue() + " Rs.");
+                     j++;
+
+                     }
+
+                 System.out.println("---------------------------------------------------------------------------------------------------");
+             }
+         }
+
+
+     }
+
+
+
 
 
 }
