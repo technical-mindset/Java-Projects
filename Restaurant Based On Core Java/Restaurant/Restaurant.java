@@ -142,7 +142,8 @@ public class Restaurant {
         return customer;
      }
 
- public static void AdminLogin(){
+
+    private static void AdminLogin(){
          System.out.println("Enter Password");
          switch (scanner.next()){
              default:
@@ -152,6 +153,34 @@ public class Restaurant {
 
                  screenForAdmin();
          }
+     }
+    
+   private static void screenForAdmin(){
+         Admin admin = new Admin("Admin","male");
+         System.out.println("\033[0;1m" +
+                 "\'Press According To The Relevance Position:\'" +
+                 "\n" + "1. About customers" +
+                 " \n2. Total earning" +
+                 "\n" + "3. Sale units");
+         System.out.print("-->");
+
+         int input = scanner.nextInt();
+
+         if (input == 1)
+             cus_Details(input, admin);
+
+         else if (input == 2) {
+             totalEarning();
+         }
+
+         else if (input == 3) {
+             unitSale();
+         }
+
+         else screenForAdmin();
+
+
+//         System.out.println(totalSale);
      }
 
 
