@@ -86,14 +86,34 @@ public class Restaurant {
          if (input == 1) {
              int index = 0;
              for (Customer cus: customers) {
-                 System.out.println((++index) + ". " + cus.getName());
+
+                 String cusName =  cus.getName().charAt(0)+"";
+                 for (int i = 1; i < cus.getName().length(); i++) {
+
+                     if (Character.isUpperCase(cus.getName().charAt(i))) {
+                         cusName = cusName + " ";
+                     }
+                     cusName = cusName + cus.getName().charAt(i);
+                 }
+
+                 System.out.println((++index) + ". " + cusName);
              }
          }
          else if (input == 2) {
              System.out.print("Name:                    Bill:\n");
 
              for (Customer cus: customers) {
-                 System.out.print("\033[0;1m" + cus.getName());
+
+                 String cusName =  cus.getName().charAt(0)+"";
+                 for (int i = 1; i < cus.getName().length(); i++) {
+
+                     if (Character.isUpperCase(cus.getName().charAt(i))) {
+                         cusName = cusName + " ";
+                     }
+                     cusName = cusName + cus.getName().charAt(i);
+                 }
+
+                 System.out.print("\033[0;1m" + cusName);
 
                  for (int i = 0; i < (25-cus.getName().length()); i++) {
                      System.out.print(" ");
@@ -105,7 +125,16 @@ public class Restaurant {
              System.out.print("Name:                    Bill:                          Items:                      Price:\n");
 
              for (Customer cus: customers) {
-                 System.out.print("\033[0;1m" + cus.getName());
+                 String cusName =  cus.getName().charAt(0)+"";
+                 for (int i = 1; i < cus.getName().length(); i++) {
+
+                     if (Character.isUpperCase(cus.getName().charAt(i))) {
+                         cusName = cusName + " ";
+                     }
+                     cusName = cusName + cus.getName().charAt(i);
+                 }
+
+                 System.out.print("\033[0;1m" + cusName);
 
                  for (int i = 0; i < (25-cus.getName().length()); i++) {
                      System.out.print(" ");
